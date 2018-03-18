@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Rio's Library {% endblock %}
+{% block body %}
+<h1>Rio's Library</h1>
+<br/>
+<h4>{% if parameters is defined %}{{ parameters }} {% else %} 
+	<form method='post' action='search'>
+	<input type='text' name='search_query'>
+	<select name='search_by'>
+		<option value='title'>title</option>
+		<option value='author'>author</option>
+		<option value='genre'>genre</option>
+		<option value='section'>section</option>
+	</select>
+		<button type='submit' class='btn btn-xs'>Search</button>
+	</form>
+{% endif %}</h4>
+	<br/>
+<table class="table table-bordered">
+	<th>Title</th>
+	<th>Author</th>
+	<th>Genre</th>
+	<th>Section</th>
+	<th>Status</th>
+	<th></th>
+	<th><a href="new"><button type='button' class='btn btn-xs btn-primary'>New Book</button></a></th>
+{% for book in books %}
+	<tr>
+		<td>{{ book.title }}</td>
+		<td>{{ book.author }}</td>
+		<td>{{ book.genre }}</td>
+		<td>{{ book.section }}</td>
+		<td>{{ book.status }}</td>
+		
+		<td><a href="borrow-return/{{ book.id }}">{% if book.status == "returned" %} <button type='button' class='btn btn-xs btn-warning'>mark as borrowed</button> {% else %} <button type='button' class='btn btn-xs btn-info'>mark as returned</button> {% endif %}</a></td>
+		<td><a href="edit/{{ book.id }}"><button type='button' class='btn btn-xs btn-success'>edit</button></a></td>
+	</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

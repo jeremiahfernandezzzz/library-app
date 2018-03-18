@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block title %}Update '{{ book.title }}'{% endblock %}
+{% block body %}
+	<form method='post' action='/update/{{ book.id }}'>
+	<h1>Edit '{{ book.title }}'</h1>
+	<br/>
+	<table class="table table-bordered">
+		<tr><td><input type='text' name='title' value='{{ book.title }}'></td><td>title</td></tr>
+		<tr><td><input type='text' name='author' value='{{ book.author }}'></td><td>author</td></tr>
+		<tr><td><select name='genre'>
+			<option value='horror' {% if book.genre == "horror" %} selected='selected' {% endif %}>horror</option>
+			<option value='romance' {% if book.genre == "romance" %} selected='selected' {% endif %}>romance</option>
+			<option value='thriller' {% if book.genre == "thriller" %} selected='selected' {% endif %}>thriller</option>
+			<option value='biographical' {% if book.genre == "biographical" %} selected='selected' {% endif %}>biographical</option>
+			<option value='self help' {% if book.genre == "self help" %} selected='selected' {% endif %}>self help</option>
+		</select>
+		</td><td>genre</td></tr>
+		<tr><td>
+		<select name='section'>
+			<option value='circulation' {% if book.section == "circulation" %} selected='selected' {% endif %}>circulation</option>
+			<option value='periodical section' {% if book.section == "periodical section" %} selected='selected' {% endif %}>periodical section</option>
+			<option value='general reference' {% if book.section == "general reference" %} selected='selected' {% endif %}>general reference</option>
+			<option value='children&apos;s section' {% if book.section == "children's section" %} selected='selected' {% endif %}>children's section</option>
+			<option value='fiction' {% if book.section == "fiction" %} selected='selected' {% endif %}>fiction</option>
+		</select>
+		</td><td>section</td></tr>
+			<!-- sorry for the code redundancy -->
+	</table>
+	<br/>
+	<button type='submit' class='btn btn-xs btn-success'>Save</button>
+	<a href='/delete/{{ book.id }}'><button type='button' class='btn btn-xs btn-danger'>delete</button></a>
+	<a href="/all"><button type='button' class='btn btn-xs'>back</button></a>
+	</form>
+	
+	
+	
+{% endblock %}

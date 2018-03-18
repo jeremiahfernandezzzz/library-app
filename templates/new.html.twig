@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block title %}New Book{% endblock %}
+{% block body %}
+	<h1>New Book</h1>
+	<br/>
+	<form method='post' action='add'>
+	<table class="table table-bordered">
+		<tr><td><input type='text' name='title'></td><td>title</td></tr>
+		<tr><td><input type='text' name='author'></td><td>author</td></tr>
+		<tr><td><select name='genre'>
+			<option value='horror'>horror</option>
+			<option value='romance'>romance</option>
+			<option value='thriller'>thriller</option>
+			<option value='biographical'>biographical</option>
+			<option value='self help'>self help</option>
+		</select>
+		</td><td>genre</td></tr>
+		<tr><td>
+		<select name='section'>
+			<option value='circulation'>circulation</option>
+			<option value='periodical section'>periodical section</option>
+			<option value='general reference'>general reference</option>
+			<option value="children&apos;s section">children's section</option>
+			<option value='fiction'>fiction</option>
+		</select></td><td>section</td></tr>
+	<table>
+	<br/>
+	<button type='submit' class='btn btn-xs btn-success'>Save</button>
+	<a href="/all"><button type='button' class='btn btn-xs'>back</button></a>
+	</form>
+	
+{% endblock %}
