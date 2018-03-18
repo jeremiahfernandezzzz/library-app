@@ -1,5 +1,7 @@
-First, make sure you have git, php & composer installed,
-then paste the ff onto your terminal:
+*Setup instructions*
+
+First, make sure you have git, php & composer installed,   
+then paste the following onto your terminal:
 
 ```
 git clone https://github.com/jeremiahfernandezzzz/library-app
