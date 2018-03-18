@@ -31,7 +31,7 @@
 		<td>{{ book.author }}</td>
 		<td>{{ book.genre }}</td>
 		<td>{{ book.section }}</td>
-		<td>{{ book.status }}</td>
+		<td>{% if book.status == "returned" %} <span style="color:blue;">returned</span> {% else %}  <span style="color:orange;">borrowed</span> {% endif %}</td>
 		
 		<td><a href="borrow-return/{{ book.id }}">{% if book.status == "returned" %} <button type='button' class='btn btn-xs btn-warning'>mark as borrowed</button> {% else %} <button type='button' class='btn btn-xs btn-info'>mark as returned</button> {% endif %}</a></td>
 		<td><a href="edit/{{ book.id }}"><button type='button' class='btn btn-xs btn-success'>edit</button></a></td>
